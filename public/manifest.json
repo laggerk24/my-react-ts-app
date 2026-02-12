@@ -1,19 +1,24 @@
 {
-    "manifest_version" : 3,
-    "version" : "1.0.0",
-    "name" : "My Vite Extension",
-    "action" : {
-        "default_popup" : "index.html"
-    },
-    "permissions" : [
-        "scripting"
-    ],
-    "host_permissions" : [
-        "http://*/*",
-        "https://*/*"
+  "manifest_version": 3,
+  "version": "1.0.0",
+  "name": "My Vite Extension",
 
-    ],
-    "icons" : {
+  "action": {
+    "default_popup": "index.html"
+  },
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "permissions": ["tabs", "scripting"],
+
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+      "icons" : {
         "32":"icon32.png"
     }
 }
