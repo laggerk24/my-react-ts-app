@@ -12,7 +12,7 @@
     "type": "module"
   },
 
-  "permissions": ["storage"],
+  "permissions": ["storage","scripting"],
 
   "content_scripts": [
     {

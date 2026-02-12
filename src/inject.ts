@@ -1,13 +1,25 @@
 (() => {
   const BUTTON_ID = "my-extension-button";
+  const randomText = "random text";
+
   console.log("Inside Inject ts file");
+  console.log(
+    "Running the function to check if it is present: " +
+      isTextPresent(randomText),
+  );
+
+  function isTextPresent(text: string): boolean {
+    return document.body.textContent?.includes(text) ?? false;
+  }
+
   if (document.getElementById(BUTTON_ID)) return;
 
   function conditionsMet(): boolean {
-    return (
-      document.querySelector(".required-class") !== null &&
-      document.querySelector(".another-class") !== null
-    );
+    // return (
+    //   document.querySelector(".required-class") !== null &&
+    //   document.querySelector(".another-class") !== null
+    // );
+    return true;
   }
 
   function insertButton() {
@@ -29,7 +41,7 @@
       color: "#fff",
       borderRadius: "6px",
       border: "none",
-      cursor: "pointer"
+      cursor: "pointer",
     });
 
     button.onclick = () => {
@@ -47,7 +59,7 @@
 
   observer.observe(document.documentElement, {
     childList: true,
-    subtree: true
+    subtree: true,
   });
 
   window.addEventListener("load", insertButton);
